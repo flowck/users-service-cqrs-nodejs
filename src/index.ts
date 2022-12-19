@@ -8,10 +8,10 @@ const httpPort = new HttpPort(app);
 
 httpPort.start(config.port);
 
-async function cleanup(signal: NodeJS.Signals) {
+async function onTerminationDoCleanup(signal: NodeJS.Signals) {
   console.log("signal", signal);
   await httpPort.stop();
 }
 
-process.on("SIGTERM", cleanup);
-process.on("SIGINT", cleanup);
+process.on("SIGTERM", onTerminationDoCleanup);
+process.on("SIGINT", onTerminationDoCleanup);
