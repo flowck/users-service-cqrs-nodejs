@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
+    "test": "echo 'to be defined'",
     "start": "PORT=3000 nodemon src/index.ts",
     "start:prod": "PORT=3000 node ./dist/index.js",
     "prettier:check": "prettier --check .",
