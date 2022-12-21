@@ -1,6 +1,7 @@
 import express, { Express } from "express";
 import { Server } from "http";
 import { App } from "../../app/app";
+import { log } from "../../common/logger";
 
 export class HttpPort {
   private server!: Express;
@@ -14,14 +15,14 @@ export class HttpPort {
 
   start(port: number) {
     this.httpServer = this.server.listen(port, () => {
-      console.log("Server is running");
+      log.info(`Server is running at ${port}`);
     });
   }
 
   async stop(): Promise<void> {
     return new Promise((resolve) => {
       this.httpServer.close(() => {
-        console.log("The server has been shutdown:");
+        log.info("The server has been shutdown:");
         resolve();
       });
     });

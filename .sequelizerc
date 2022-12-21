@@ -1,0 +1,8 @@
+const path = require("path");
+
+module.exports = {
+  config: path.resolve("src", "psql.js"),
+  "models-path": path.resolve("src/adapters", "models"),
+  "seeders-path": path.resolve("sql", "seeders"),
+  "migrations-path": path.resolve("sql", "migrations"),
+};
